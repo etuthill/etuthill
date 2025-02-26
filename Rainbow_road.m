@@ -1,3 +1,5 @@
+%% Parametric curve with vectors
+
 hold off
 clear
 syms t
@@ -110,10 +112,9 @@ plot(t_actual, linear_speed_actual, "c--")
 legend("Predicted", "Actual", "Location", "northwest")
 xlabel("Time (seconds)")
 ylabel("Linear Speed (m/s)")
+
 %%
 %Wheel speeds
-
-
 
 d = 0.24;
 t = linspace(0, 32, 200);
@@ -143,8 +144,7 @@ ylabel("Velocity (m/s)")
 hold off;
 
 %%
-% 
-% Neato Programming
+% Neato Programming (commented to avoid accidentally running while plotting)
 % 
 % neatov3.connect('192.168.16.91');
 % 
@@ -183,9 +183,9 @@ hold off;
 % neatov3.disconnect();
 
 
-%%
+%%Path generation
 
-
+%predicted
 syms t
 u = 0.1 * t;
 
@@ -201,6 +201,7 @@ plot(x_vals, y_vals, "r", "LineWidth", 2)
 axis([-2, 2, -2, 2])
 hold on
 
+%actual:
 my_path = 'C:\Users\etuthill\OneDrive - Olin College of Engineering\QEA2\Week 4\';
 fname = 'Vid_1_data.mat';
 neato_data = load([my_path,fname],'recorded_data').recorded_data;
